@@ -1,4 +1,6 @@
 import math
+import random
+
 def HybridMergeSort(A, start, end):
     S = 4
     ## Switch to Insertion Sort if size <= S
@@ -39,7 +41,12 @@ def Merge(A,start,mid,end):
         k += 1
 
 
+def generate_array(n, x):
+    # Generates an array of size n with random integers in range [1, x]
+    return [random.randint(1, x) for i in range(n)]
 
+# Example: generate array of size 1,000 with x = 1,000,000
+arr = generate_array(1000, 1000000)
 
 A = [2, 3, 4, 1]
 HybridMergeSort(A,0,len(A))
