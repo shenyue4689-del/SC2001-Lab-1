@@ -1,24 +1,21 @@
 import math
 def HybridMergeSort(A, start, end):
-    S = 1
-    if end - start <= 1:
-        return A
+    S = 4
     ## Switch to Insertion Sort if size <= S
     if end - start <= S:
-        size = len(A)
-        InsertionSort(A, size)
+        InsertionSort(A, start, end) 
         return A
-    ## else do Merge Sort
     else:
         mid = start + math.floor((end - start) / 2)
         HybridMergeSort(A, start, mid)
         HybridMergeSort(A, mid, end)
         Merge(A, start, mid, end)
+        return A
 
-def InsertionSort(A, size):
-    for i in range(size):
+def InsertionSort(A, start, end):
+    for i in range(start+1, end):
         j = i-1
-        while j >= 0 and A[j] > A[j+1]:
+        while j >= start and A[j] > A[j+1]:
             A[j], A[j+1] = A[j+1], A[j]
             j -= 1
 
