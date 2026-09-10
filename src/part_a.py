@@ -38,20 +38,6 @@ def Merge(A, start, mid, end):
 
     for j in range(0, len(B_right)):
         while i < len(B_left):
-
-            if not isinstance(key_comp, int):
-                print("BAD key_comp:", type(key_comp), key_comp)
-                raise RuntimeError("key_comp corrupted")
-
-            if not isinstance(B_left[i], int):
-                print("BAD LEFT:", i, type(B_left[i]), B_left[i])
-                raise RuntimeError("B_left corrupted")
-
-            if not isinstance(B_right[j], int):
-                print("BAD RIGHT:", j, type(B_right[j]), B_right[j])
-                raise RuntimeError("B_right corrupted")
-
-
             key_comp += 1  # Comparison B_left[i] vs B_right[j] occurs here
             if B_left[i] <= B_right[j]:
                 A[k] = B_left[i]
